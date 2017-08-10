@@ -44,6 +44,7 @@
     "appium-support": "2.x",
     "appium-uiautomator2-driver": "0.x",
     "appium-windows-driver": "0.x",
+    "appium-xcode": "^3.3.0",
     "appium-xcuitest-driver": "2.x",
     "appium-youiengine-driver": "1.x",
     "argparse": "1.x",
@@ -63,7 +64,10 @@
   "scripts": {
     "prepublish": "gulp prepublish",
     "test": "gulp once",
-    "watch": "gulp",
+    "watch": "gulp watch",
+    "build": "gulp transpile",
+    "e2e-test": "gulp e2e-test",
+    "coverage": "gulp coveralls",
     "precommit-msg": "echo 'Pre-commit checks...' && exit 0",
     "lint": "gulp eslint"
   },
@@ -73,7 +77,7 @@
     "test"
   ],
   "devDependencies": {
-    "appium-gulp-plugins": "1.x",
+    "appium-gulp-plugins": "2.x",
     "babel-eslint": "6.x",
     "chai": "3.x",
     "chai-as-promised": "5.x",
@@ -86,6 +90,7 @@
     "gulp": "3.x",
     "mocha": "2.x",
     "pre-commit": "1.x",
+    "sample-apps": "^2.0.4",
     "sinon": "1.x",
     "wd": "1.x"
   },

@@ -5,12 +5,13 @@ import B from 'bluebird';
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import wd from 'wd';
-import { main as appiumServer } from '../lib/main';
-import { TEST_FAKE_APP, TEST_HOST, TEST_PORT } from './helpers';
+import { main as appiumServer } from '../../lib/main';
+import { TEST_FAKE_APP, TEST_HOST, TEST_PORT } from '../helpers';
+
 
 chai.use(chaiAsPromised);
-
 const should = chai.should();
+
 const shouldStartServer = process.env.USE_RUNNING_SERVER !== "0";
 const caps = {platformName: "Fake", deviceName: "Fake", app: TEST_FAKE_APP};
 
