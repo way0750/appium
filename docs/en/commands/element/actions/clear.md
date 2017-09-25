@@ -9,11 +9,13 @@ MobileElement element = (MobileElement) driver.findElementByAccessibilityId("Som
 element.clear();
 
 ```
+
 ```python
 # Python
 self.driver.find_element_by_accessibility_id('SomeAccessibilityID').clear()
 
 ```
+
 ```javascript
 // Javascript
 // webdriver.io example
@@ -25,16 +27,19 @@ let element = await driver.elementByAccessibilityId("SomeAccessibilityID");
 await element.clear();
 
 ```
+
 ```ruby
 # Ruby
 @driver.find_element(:accessibility_id, "SomeAccessibilityID").clear()
 
 ```
+
 ```php
 # PHP
 // TODO PHP sample
 
 ```
+
 ```csharp
 // C#
 // TODO C# sample
@@ -45,13 +50,13 @@ await element.clear();
 
 ## Client Docs
 
-* [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebElement.html#clear--)
-* [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webelement.WebElement.clear)
-* [Javascript (WebdriverIO)](http://webdriver.io/api/action/clearElement.html)
-* [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L1780)
-* [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/Element:clear)
-* [PHP](https://github.com/appium/php-client/)
-* [C#](https://github.com/appium/appium-dotnet-driver/)
+ * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebElement.html#clear--) 
+ * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webelement.WebElement.clear) 
+ * [Javascript (WebdriverIO)](http://webdriver.io/api/action/clearElement.html) 
+ * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L1780) 
+ * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/Element:clear) 
+ * [PHP](https://github.com/appium/php-client/) 
+ * [C#](https://github.com/appium/appium-dotnet-driver/) 
 
 ## Support
 

@@ -1,36 +1,37 @@
-# Get Tag Name
+# Get Element Text
 
-Get an element's tag name
+Returns visible text for element
 ## Example Usage
 
 ```java
 // Java
-List<MobileElement> element = (MobileElement) driver.findElementByAccessibilityId("SomeAccessibilityID");
-String tagName = element.getTagName();
+MobileElement element = (MobileElement) driver.findElementByClassName("SomeClassName");
+let elText = element.getText();
 
 ```
 
 ```python
 # Python
-tagName = self.driver.find_element_by_accessibility_id('SomeAccessibilityID').tag_name
+# el = self.driver.find_element_by_accessibility_id('SomeId')
+# TODO: Python example
 
 ```
 
 ```javascript
 // Javascript
 // webdriver.io example
-let tagName = driver.getTagName("~SomeAccessibilityId");
+driver.getText("~SomeAccessibilityId");
 
 
 // wd example
 let element = await driver.elementByAccessibilityId("SomeAccessibilityID");
-let tagName = await element.getTagName();
+await element.submit();
 
 ```
 
 ```ruby
 # Ruby
-@driver.find_element(:accessibility_id, 'SomeAccessibilityID').tag_name
+# TODO Ruby sample
 
 ```
 
@@ -47,14 +48,18 @@ let tagName = await element.getTagName();
 ```
 
 
+## Description
+
+Returns the visible text for the element.
+
 
 ## Client Docs
 
- * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebElement.html#getTagName--) 
- * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webelement.WebElement.tag_name) 
- * [Javascript (WebdriverIO)](http://webdriver.io/api/property/getTagName.html) 
- * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L1336) 
- * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/Element#tag_name-instance_method) 
+ * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebElement.html#getText--) 
+ * [Python](http://selenium-python.readthedocs.io/api.html) 
+ * [Javascript (WebdriverIO)](http://webdriver.io/api/property/getText.html) 
+ * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L1832) 
+ * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/) 
  * [PHP](https://github.com/appium/php-client/) 
  * [C#](https://github.com/appium/appium-dotnet-driver/) 
 
@@ -87,7 +92,7 @@ let tagName = await element.getTagName();
 
 ### Endpoint
 
-`GET /wd/hub/session/:session_id/elements/:element_id/name`
+`POST /wd/hub/session/:session_id/element/:element_id/value`
 
 ### URL Parameters
 
@@ -99,9 +104,9 @@ None
 
 ### Response
 
-The tag name of the element (string)
+null
 
 ## See Also
 
-* [W3C Specification](https://www.w3.org/TR/webdriver/#dfn-get-element-tag-name)
-* [JSONWP Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#sessionsessionidelementidname)
+* [W3C Specification](https://www.w3.org/TR/webdriver/#dfn-get-element-text)
+* [JSONWP Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#sessionsessionidelementidvalue)

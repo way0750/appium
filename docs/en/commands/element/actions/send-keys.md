@@ -9,11 +9,13 @@ MobileElement element = (MobileElement) driver.findElementByAccessibilityId("Som
 element.sendKeys("Hello world!");
 
 ```
+
 ```python
 # Python
 self.driver.find_element_by_accessibility_id('SomeAccessibilityID').send_keys('Hello world!')
 
 ```
+
 ```javascript
 // Javascript
 // webdriver.io example
@@ -25,16 +27,19 @@ let element = await driver.elementByAccessibilityId("SomeAccessibilityID");
 await element.type("Hello world!")
 
 ```
+
 ```ruby
 # Ruby
 @driver.find_element(:accessibility_id, "SomeAccessibilityID").send_keys("Hello World!")
 
 ```
+
 ```php
 # PHP
 // TODO PHP sample
 
 ```
+
 ```csharp
 // C#
 // TODO C# sample
@@ -49,13 +54,13 @@ Any UTF-8 character may be specified, however, if the server does not support na
 
 ## Client Docs
 
-* [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebElement.html#sendKeys-java.lang.CharSequence...-)
-* [Python](http://selenium-python.readthedocs.io/api.html?highlight=active_element#selenium.webdriver.common.action_chains.ActionChains.send_keys)
-* [Javascript (WebdriverIO)](http://webdriver.io/api/action/setValue.html)
-* [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L1700)
-* [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/Element#send_keys-instance_method)
-* [PHP](https://github.com/appium/php-client/)
-* [C#](https://github.com/appium/appium-dotnet-driver/)
+ * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebElement.html#sendKeys-java.lang.CharSequence...-) 
+ * [Python](http://selenium-python.readthedocs.io/api.html?highlight=active_element#selenium.webdriver.common.action_chains.ActionChains.send_keys) 
+ * [Javascript (WebdriverIO)](http://webdriver.io/api/action/setValue.html) 
+ * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L1700) 
+ * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/Element#send_keys-instance_method) 
+ * [PHP](https://github.com/appium/php-client/) 
+ * [C#](https://github.com/appium/appium-dotnet-driver/) 
 
 ## Support
 
