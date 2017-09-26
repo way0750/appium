@@ -27,8 +27,7 @@ let rect = await element.getRect();
 ```
 
 ```ruby
-|
-  # Not supported
+# Not supported
 ```
 
 ```php
