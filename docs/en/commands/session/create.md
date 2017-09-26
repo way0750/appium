@@ -5,32 +5,76 @@ Create a new session
 
 ```java
 // Java
-MobileElement element = (MobileElement) driver.findElementByAccessibilityId("SomeAccessibilityID");
-element.clear();
+DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10.3");
+desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone Simulator");
+desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");
+desiredCapabilities.setCapability(MobileCapabilityType.APP, "/path/to/ios/app.zip");
+
+URL url = new URL("http://127.0.0.1:4723/wd/hub");
+
+IOSDriver driver = new IOSDriver(url, desiredCapabilities);
+String sessionId = driver.getSessionId().toString();
 
 ```
 
 ```python
 # Python
-self.driver.find_element_by_accessibility_id('SomeAccessibilityID').clear()
+desired_caps = {}
+desired_caps['platformName'] = 'Android'
+desired_caps['platformVersion'] = '7.0'
+desired_caps['deviceName'] = 'Android Emulator'
+desired_caps['automationName'] = 'UiAutomator2'
+desired_caps['app'] = PATH(
+    '/path/to/app.apk'
+)
+
+self.driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
 
 ```
 
 ```javascript
 // Javascript
 // webdriver.io example
-driver.clearElement("~SomeAccessibilityId");
+let options = { desiredCapabilities: { 
+  platformName: 'Android',
+  platformVersion: '7.0',
+  automationName: 'UiAutomator2',
+  app: path.resolve('path', 'to', 'app.apk')
+}};
+let client = webdriverio.remote(options);
 
 
 // wd example
-let element = await driver.elementByAccessibilityId("SomeAccessibilityID");
-await element.clear();
+let driver = await wd.promiseChainRemote({
+  host: '127.0.0.1',
+  port: 4723
+});
+let desiredCaps = {
+  platformName: 'Android',
+  platformVersion: '7.0',
+  deviceName: 'Android Emulator',
+  app: path.resolve('path', 'to', 'app.apk')
+};
+await driver.init(desiredCaps);
 
 ```
 
 ```ruby
 # Ruby
-@driver.find_element(:accessibility_id, "SomeAccessibilityID").clear()
+APP_PATH = '../../apps/TestApp/build/release-iphonesimulator/TestApp.app'
+
+desired_caps = {
+  caps:       {
+    platformName:  'iOS',
+    platformVersion: '10.2',
+    deviceName:    'iPhone 6',
+    app:           APP_PATH,
+    automationName: "XCUITest"
+  }
+}
+
+Appium::Driver.new(desired_caps).start_driver
 
 ```
 
@@ -51,19 +95,17 @@ await element.clear();
 
 The server should attempt to create a session that most closely matches the desired and required capabilities. 
 
-* [JSONWP Spec](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#session-1) 
-  * Required capabilities have higher priority than desired capabilities and must be set for the session to be created
-* [W3C specification])(https://www.w3.org/TR/webdriver/#dfn-new-session)
-  * capabilities.alwaysMatch must be set for session to be created; capabilities.firstMatch must match at least one (the first one to match will be used)
+* [JSONWP Spec](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#session-1) Required capabilities have higher priority than desired capabilities and must be set for the session to be created
+* [W3C Spec](https://www.w3.org/TR/webdriver/#dfn-new-session) capabilities.alwaysMatch must be set for session to be created; capabilities.firstMatch must match at least one (the first one to match will be used)
 
 
 ## Client Docs
 
- * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebElement.html#clear--) 
- * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webelement.WebElement.clear) 
- * [Javascript (WebdriverIO)](http://webdriver.io/api/action/clearElement.html) 
- * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L1780) 
- * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/Element:clear) 
+ * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/remote/server/DefaultSession.html#createSession-org.openqa.selenium.remote.server.DriverFactory-org.openqa.selenium.remote.server.Clock-org.openqa.selenium.remote.SessionId-org.openqa.selenium.Capabilities-) 
+ * [Python](http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webdriver) 
+ * [Javascript (WebdriverIO)](http://webdriver.io/) 
+ * [Javascript (WD)](https://github.com/admc/wd/blob/65070da779a91d0e92e8d19fe844a01c766411e5/test/midway/multi/config-http-specs.js#L24) 
+ * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/Driver) 
  * [PHP](https://github.com/appium/php-client/) 
  * [C#](https://github.com/appium/appium-dotnet-driver/) 
 
@@ -100,8 +142,7 @@ The server should attempt to create a session that most closely matches the desi
 
 ### URL Parameters
 
-|name|description|
-|----|-----------|
+None
 
 ### JSON Parameters
 
@@ -111,11 +152,11 @@ The server should attempt to create a session that most closely matches the desi
 | requiredCapabilities | object | ([JSONWP specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#session-1)) Object describing session's required capabilities that must be applied by remote end |
 | capabilities | object | ([W3C specification])(https://www.w3.org/TR/webdriver/#dfn-new-session) object containing 'alwaysMatch' and 'firstMatch' properties |
 | capabilities.alwaysMatch | object | The [desired capabilities](/docs/en/writing-running-appium/caps.md) that the remote end must match |
-| capabilities.firstMatch | array<object> | List of capabilities that the remote end tries to match. Matches the first in the list. |
+| capabilities.firstMatch | array<object> | List of capabilities that the remote end tries to match. Matches the first in the list |
 
 ### Response
 
-null
+An object describing the session's capabilities (object)
 
 ## See Also
 

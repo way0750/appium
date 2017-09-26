@@ -1,36 +1,35 @@
-# Is Element Displayed
+# Get Session Capabilities
 
-Determine if an element is currently displayed
+Retrieve the capabilities of the specified
 ## Example Usage
 
 ```java
 // Java
-MobileElement element = (MobileElement) driver.findElementByAccessibilityId("SomeAccessibilityID");
-boolean isDisplayed = element.isDisplayed();
+DriverSessions driverSessions = new DriverSessions();
+Session session = driverSessions.get("c8db88a0-47a6-47a1-802d-164d746c06aa");
 
 ```
 
 ```python
 # Python
-self.driver.find_element_by_accessibility_id('SomeAccessibilityID').is_displayed()
+desired_caps = self.driver.desired_capabilities()
 
 ```
 
 ```javascript
 // Javascript
 // webdriver.io example
-let isDisplayed = driver.elementIdDisplayed("~SomeAccessibilityId");
+let caps = driver.session('c8db88a0-47a6-47a1-802d-164d746c06aa');
 
 
 // wd example
-let element = await driver.elementByAccessibilityId("SomeAccessibilityID");
-let isDisplayed = await element.isDisplayed();
+let caps = await driver.sessionCapabilities('c8db88a0-47a6-47a1-802d-164d746c06aa');
 
 ```
 
 ```ruby
 # Ruby
-@driver.find_element(:accessibility_id, "SomeAccessibilityID").displayed?()
+# Private method. Do not use.
 
 ```
 
@@ -50,11 +49,11 @@ let isDisplayed = await element.isDisplayed();
 
 ## Client Docs
 
- * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebElement.html#isDisplayed--) 
- * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webelement.WebElement.is_displayed) 
- * [Javascript (WebdriverIO)](http://webdriver.io/api/protocol/elementIdDisplayed.html) 
- * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L1370) 
- * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium%2FWebDriver%2FElement:displayed%3F) 
+ * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/remote/server/DefaultDriverSessions.html#get-org.openqa.selenium.remote.SessionId-) 
+ * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webdriver.WebDriver.desired_capabilities) 
+ * [Javascript (WebdriverIO)](http://webdriver.io/api/protocol/session.html) 
+ * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L227) 
+ * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium%2FWebDriver%2FRemote%2FOSS%2FBridge:session_capabilities) 
  * [PHP](https://github.com/appium/php-client/) 
  * [C#](https://github.com/appium/appium-dotnet-driver/) 
 
@@ -87,14 +86,13 @@ let isDisplayed = await element.isDisplayed();
 
 ### Endpoint
 
-`GET /wd/hub/session/:session_id/element/:element_id/displayed`
+`GET /session/:session_id`
 
 ### URL Parameters
 
 |name|description|
 |----|-----------|
 |session_id|ID of the session to route the command to|
-|element_id|ID of the element to check if it is displayed|
 
 ### JSON Parameters
 
@@ -102,8 +100,8 @@ None
 
 ### Response
 
-Whether the element is displayed (boolean)
+An object describing the session's capabilities (object)
 
 ## See Also
 
-* [JSONWP Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#sessionsessionidelementiddisplayed)
+* [JSONWP Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#sessionsessionid)

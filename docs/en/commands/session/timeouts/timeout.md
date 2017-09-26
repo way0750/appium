@@ -1,36 +1,34 @@
-# Is Element Displayed
+# Set Timeouts
 
-Determine if an element is currently displayed
+Configure the amount of time that a particular type of operation can execute for before they are aborted
 ## Example Usage
 
 ```java
 // Java
-MobileElement element = (MobileElement) driver.findElementByAccessibilityId("SomeAccessibilityID");
-boolean isDisplayed = element.isDisplayed();
+driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
 ```
 
 ```python
 # Python
-self.driver.find_element_by_accessibility_id('SomeAccessibilityID').is_displayed()
+self.driver.set_page_load_timeout(5000)
 
 ```
 
 ```javascript
 // Javascript
 // webdriver.io example
-let isDisplayed = driver.elementIdDisplayed("~SomeAccessibilityId");
+driver.timeouts('pageLoad', 5000)
 
 
 // wd example
-let element = await driver.elementByAccessibilityId("SomeAccessibilityID");
-let isDisplayed = await element.isDisplayed();
+await driver.setPageLoadTimeout(5000);
 
 ```
 
 ```ruby
 # Ruby
-@driver.find_element(:accessibility_id, "SomeAccessibilityID").displayed?()
+@driver.implicit_wait(5) # Ruby translates it to seconds
 
 ```
 
@@ -47,14 +45,18 @@ let isDisplayed = await element.isDisplayed();
 ```
 
 
+## Description
+
+The types of timeouts are 'page load', 'script' and 'implicit'. (The example usage is just 'page load')
+
 
 ## Client Docs
 
- * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebElement.html#isDisplayed--) 
- * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webelement.WebElement.is_displayed) 
- * [Javascript (WebdriverIO)](http://webdriver.io/api/protocol/elementIdDisplayed.html) 
- * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L1370) 
- * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium%2FWebDriver%2FElement:displayed%3F) 
+ * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/remote/RemoteWebDriver.RemoteWebDriverOptions.RemoteTimeouts.html#pageLoadTimeout-long-java.util.concurrent.TimeUnit-) 
+ * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webdriver.WebDriver.set_page_load_timeout) 
+ * [Javascript (WebdriverIO)](http://webdriver.io/guide/testrunner/timeouts.html#Selenium-timeouts) 
+ * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L714) 
+ * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/Timeouts:implicit_wait=) 
  * [PHP](https://github.com/appium/php-client/) 
  * [C#](https://github.com/appium/appium-dotnet-driver/) 
 
@@ -87,23 +89,26 @@ let isDisplayed = await element.isDisplayed();
 
 ### Endpoint
 
-`GET /wd/hub/session/:session_id/element/:element_id/displayed`
+`POST /session/:session_id/timeouts`
 
 ### URL Parameters
 
 |name|description|
 |----|-----------|
 |session_id|ID of the session to route the command to|
-|element_id|ID of the element to check if it is displayed|
 
 ### JSON Parameters
 
-None
+|name|type|description|
+|----|-----------|
+| type | string | The type of operation to set the timeout for. Valid values are: 'script' for script timeouts, 'implicit' for modifying the implicit wait timeout and 'page load' for setting a page load timeout. |
+| ms | number | The amount of time, in milliseconds, that time-limited commands are permitted to run |
 
 ### Response
 
-Whether the element is displayed (boolean)
+null
 
 ## See Also
 
-* [JSONWP Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#sessionsessionidelementiddisplayed)
+* [W3C Specification](https://www.w3.org/TR/webdriver/#set-timeouts)
+* [JSONWP Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#sessionsessionidtimeouts)

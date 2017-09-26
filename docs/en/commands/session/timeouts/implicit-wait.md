@@ -1,36 +1,34 @@
-# Get Element CSS Value
+# Set Implicit Wait Timeout
 
-Query the value of a web element's computed CSS property
+Set the amount of time the driver should wait when searching for elements
 ## Example Usage
 
 ```java
 // Java
-List<MobileElement> element = (MobileElement) driver.findElementById("SomeId");
-String cssProperty = element.getCssValue("style");
+driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 ```
 
 ```python
 # Python
-cssProperty = self.driver.find_element_by_accessibility_id('SomeId').value_of_css_property("style")
+self.driver.implicitly_wait(5000)
 
 ```
 
 ```javascript
 // Javascript
 // webdriver.io example
-let cssProperty = driver.getCssProperty("~SomeId", "style");
+driver.timeoutsImplicitWait(5000)
 
 
 // wd example
-let element = await driver.elementById("SomeId");
-let cssProperty = await element.getComputedCss();
+await driver.setImplicitWaitTimeout(5000);
 
 ```
 
 ```ruby
 # Ruby
-@driver.find_element(:id, 'SomeId').css_value
+@driver.implicit_wait(5) # Ruby translates it to seconds
 
 ```
 
@@ -49,18 +47,21 @@ let cssProperty = await element.getComputedCss();
 
 ## Description
 
-The CSS property to query should be specified using the CSS property name, not the JavaScript property name (e.g. background-color instead of backgroundColor).
+When  searching for a single element, the driver should poll the page until an element is found or
+the timeout expires, whichever occurs first. When searching for multiple elements, the driver
+should poll the page until at least one element is found or the timeout expires, at which point
+it should return an empty list.
 
-This command only applies to webview contexts
+If this command is never sent, the driver should default to an implicit wait of 0ms
 
 
 ## Client Docs
 
- * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebElement.html#getCssValue--) 
- * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webelement.WebElement.value_of_css_property) 
- * [Javascript (WebdriverIO)](http://webdriver.io/api/property/getCssProperty.html) 
- * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L1447) 
- * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/Element:css_value) 
+ * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/remote/RemoteWebDriver.RemoteWebDriverOptions.RemoteTimeouts.html#implicitlyWait-long-java.util.concurrent.TimeUnit-) 
+ * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webdriver.WebDriver.implicitly_wait) 
+ * [Javascript (WebdriverIO)](http://webdriver.io/api/protocol/timeoutsImplicitWait.html#description) 
+ * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L681) 
+ * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/Timeouts:implicit_wait=) 
  * [PHP](https://github.com/appium/php-client/) 
  * [C#](https://github.com/appium/appium-dotnet-driver/) 
 
@@ -93,25 +94,25 @@ This command only applies to webview contexts
 
 ### Endpoint
 
-`GET /wd/hub/session/:session_id/elements/:element_id/css/:property_name`
+`POST /session/:session_id/timeouts/implicit_wait`
 
 ### URL Parameters
 
 |name|description|
 |----|-----------|
 |session_id|ID of the session to route the command to|
-|element_id|ID of the element to get the property from|
-|property_name|Name of the CSS property|
 
 ### JSON Parameters
 
-None
+|name|type|description|
+|----|-----------|
+| ms | number | The amount of time, in milliseconds, that time-limited commands are permitted to run |
 
 ### Response
 
-Value of the CSS property (string)
+null
 
 ## See Also
 
-* [W3C Specification](https://www.w3.org/TR/webdriver/#dfn-get-element-css-value)
-* [JSONWP Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#sessionsessionidelementidcsspropertyname)
+* [W3C Specification](https://www.w3.org/TR/webdriver/#dfn-get-timeouts)
+* [JSONWP Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#sessionsessionidtimeoutsimplicit_wait)
