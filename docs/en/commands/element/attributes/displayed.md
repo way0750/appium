@@ -22,6 +22,7 @@ self.driver.find_element_by_accessibility_id('SomeAccessibilityID').is_displayed
 let isDisplayed = driver.elementIdDisplayed("~SomeAccessibilityId");
 
 
+
 // wd example
 let element = await driver.elementByAccessibilityId("SomeAccessibilityID");
 let isDisplayed = await element.isDisplayed();

@@ -21,6 +21,7 @@ self.driver.implicitly_wait(5000)
 driver.timeoutsImplicitWait(5000)
 
 
+
 // wd example
 await driver.setImplicitWaitTimeout(5000);
 

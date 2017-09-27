@@ -22,6 +22,7 @@ el = self.driver.find_element_by_accessibility_id('SomeAccessibilityID')
 driver.element("~SomeAccessibilityId");
 
 
+
 // wd example
 let elementOne = await driver.elementByAccessibilityId("SomeAccessibilityID");
 let elementTwo = await driver.element("id", "SomeID");

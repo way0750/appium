@@ -22,6 +22,7 @@ desired_caps = self.driver.desired_capabilities()
 let caps = driver.session('c8db88a0-47a6-47a1-802d-164d746c06aa');
 
 
+
 // wd example
 let caps = await driver.sessionCapabilities('c8db88a0-47a6-47a1-802d-164d746c06aa');
 

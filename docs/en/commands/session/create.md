@@ -45,6 +45,7 @@ let options = { desiredCapabilities: {
 let client = webdriverio.remote(options);
 
 
+
 // wd example
 let driver = await wd.promiseChainRemote({
   host: '127.0.0.1',

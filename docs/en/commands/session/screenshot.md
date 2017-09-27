@@ -1,37 +1,35 @@
-# Get Element Location
+# Take Screenshot
 
-Determine an element's location on the page or screen
+Take a screenshot of the current viewport/window/page
 ## Example Usage
 
 ```java
 // Java
-List<MobileElement> element = (MobileElement) driver.findElementByAccessibilityId("SomeAccessibilityID");
-Point location = element.getLocation();
+File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 
 ```
 
 ```python
 # Python
-location = self.driver.find_element_by_accessibility_id('SomeAccessibilityID').location
+screenshotBase64 = self.driver.get_screenshot_as_base64()
 
 ```
 
 ```javascript
 // Javascript
 // webdriver.io example
-let location = driver.getLocation("~SomeAccessibilityId");
+let screenshot = driver.screenshot();
 
 
 
 // wd example
-let element = await driver.elementByAccessibilityId("SomeAccessibilityID");
-let location = await element.getLocation();
+let screenshot = await driver.takeScreenshot();
 
 ```
 
 ```ruby
 # Ruby
-@driver.find_element(:accessibility_id, 'SomeAccessibilityID').location
+@driver.screenshot_as(:base64)
 
 ```
 
@@ -48,17 +46,14 @@ let location = await element.getLocation();
 ```
 
 
-## Description
-
-The point (0, 0) refers to the upper-left corner of the page. The element's coordinates are returned as a JSON object with x and y properties
 
 ## Client Docs
 
- * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebElement.html#getLocation--) 
- * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webelement.WebElement.location) 
- * [Javascript (WebdriverIO)](http://webdriver.io/api/property/getLocation.html) 
- * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L2175) 
- * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/Element:location) 
+ * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/remote/RemoteWebDriver.html#getScreenshotAs-org.openqa.selenium.OutputType-) 
+ * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webdriver.WebDriver.get_screenshot_as_base64) 
+ * [Javascript (WebdriverIO)](http://webdriver.io/api/protocol/screenshot.html) 
+ * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L1089) 
+ * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/DriverExtensions/TakesScreenshot) 
  * [PHP](https://github.com/appium/php-client/) 
  * [C#](https://github.com/appium/appium-dotnet-driver/) 
 
@@ -91,14 +86,13 @@ The point (0, 0) refers to the upper-left corner of the page. The element's coor
 
 ### Endpoint
 
-`GET /wd/hub/session/:session_id/elements/:element_id/location`
+`GET /wd/hub/session/:session_id/screenshot`
 
 ### URL Parameters
 
 |name|description|
 |----|-----------|
 |session_id|ID of the session to route the command to|
-|element_id|ID of the element to get the location of|
 
 ### JSON Parameters
 
@@ -106,11 +100,9 @@ None
 
 ### Response
 
-|name|type|description|
-|----|----|-----------|
-| x | number | X coordinate |
-| y | number | Y coordinate |
+The screenshot as a base64 encoded PNG (string)
 
 ## See Also
 
-* [JSONWP Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#sessionsessionidelementidlocation)
+* [W3C Specification](https://www.w3.org/TR/webdriver/#dfn-take-screenshot)
+* [JSONWP Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#sessionsessionidscreenshot)

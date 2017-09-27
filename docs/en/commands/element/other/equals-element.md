@@ -24,6 +24,7 @@ boolean isEqual = elementOne.equals(elementTwo);
 # TODO WDIO example
 
 
+
 // wd example
 let elementOne = await driver.elementByClassName("someClass");
 let elementTwo = await driver.elementByClassName("someOtherClass");

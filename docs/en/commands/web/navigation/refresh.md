@@ -1,4 +1,4 @@
-# Go Forward
+# Refresh
 
 Refresh the current page. (Web context only)
 ## Example Usage
@@ -19,6 +19,7 @@ self.driver.refresh()
 // Javascript
 // webdriver.io example
 driver.refresh();
+
 
 
 // wd example

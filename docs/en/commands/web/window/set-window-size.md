@@ -1,35 +1,37 @@
-# Get Timeouts
+# Set Window Size
 
-Set the amount of time, in milliseconds, that asynchronous scripts executed by [execute async](/docs/en/commands/session/execute-async.md) are permitted to run before they are aborted (Web context only)
+Change the size of the specified window (Web context only)
 ## Example Usage
 
 ```java
 // Java
-driver.manage().timeouts().setScriptTimeout(30, TimeUnit.SECONDS);
+driver.manage().window().setSize(new Dimension(10, 10));
 
 ```
 
 ```python
 # Python
-self.driver.set_script_timeout(5000)
+self.driver.set_window_size(10, 10)
 
 ```
 
 ```javascript
 // Javascript
 // webdriver.io example
-driver.timeoutsAsyncScript(5000)
+driver.windowHandleSize("handleName", {height: 10, width: 10}); // Set by window handle hame
+driver.windowHandleSize({height: 10, width: 10}); // Current window
 
 
 
 // wd example
-await driver.setAsyncScriptTimeout(5000);
+await driver.setWindowSize(10, 10, "handleName"); // Set size of window by handle name
+await driver.setWindowSize(10, 10); // Set current window
 
 ```
 
 ```ruby
 # Ruby
-@driver.script_timeout(5) # Ruby translates it to seconds
+@driver.maximize_window()
 
 ```
 
@@ -49,11 +51,11 @@ await driver.setAsyncScriptTimeout(5000);
 
 ## Client Docs
 
- * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebDriver.Timeouts.html#setScriptTimeout-long-java.util.concurrent.TimeUnit-) 
- * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webdriver.WebDriver.set_script_timeout) 
- * [Javascript (WebdriverIO)](http://webdriver.io/api/protocol/timeoutsAsyncScript.html) 
- * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L699) 
- * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/Timeouts#script_timeout=) 
+ * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebDriver.Window.html#setSize-org.openqa.selenium.Dimension-) 
+ * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webdriver.WebDriver.set_window_size) 
+ * [Javascript (WebdriverIO)](http://webdriver.io/api/protocol/windowHandleSize.html) 
+ * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L564) 
+ * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/Remote/W3C/Bridge:maximize_window) 
  * [PHP](https://github.com/appium/php-client/) 
  * [C#](https://github.com/appium/appium-dotnet-driver/) 
 
@@ -86,19 +88,21 @@ await driver.setAsyncScriptTimeout(5000);
 
 ### Endpoint
 
-`POST /session/:session_id/timeouts/async_script`
+`POST /wd/hub/session/:session_id/window/:window_handle/size`
 
 ### URL Parameters
 
 |name|description|
 |----|-----------|
 |session_id|ID of the session to route the command to|
+|window_handle|Handle of the window to get size of. If 'current' it will get size of current window.|
 
 ### JSON Parameters
 
 |name|type|description|
 |----|-----------|
-| ms | number | The amount of time, in milliseconds, that time-limited commands are permitted to run |
+| width | number | The new window width |
+| height | number | The new window height |
 
 ### Response
 
@@ -106,4 +110,4 @@ null
 
 ## See Also
 
-* [JSONWP Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#sessionsessionidtimeoutsasync_script)
+* [JSONWP Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#post-sessionsessionidwindowwindowhandlesize)

@@ -1,35 +1,33 @@
-# Get Timeouts
+# Switch to Parent Frame
 
-Set the amount of time, in milliseconds, that asynchronous scripts executed by [execute async](/docs/en/commands/session/execute-async.md) are permitted to run before they are aborted (Web context only)
+Change focus to the parent context (Web context only)
 ## Example Usage
 
 ```java
 // Java
-driver.manage().timeouts().setScriptTimeout(30, TimeUnit.SECONDS);
+driver.switchTo().parentFrame();
 
 ```
 
 ```python
 # Python
-self.driver.set_script_timeout(5000)
+self.driver.switch_to.parent()
 
 ```
 
 ```javascript
 // Javascript
 // webdriver.io example
-driver.timeoutsAsyncScript(5000)
+driver.frameParent();
 
 
 
-// wd example
-await driver.setAsyncScriptTimeout(5000);
-
+// Not supported
 ```
 
 ```ruby
 # Ruby
-@driver.script_timeout(5) # Ruby translates it to seconds
+@driver.parent_frame()
 
 ```
 
@@ -46,14 +44,18 @@ await driver.setAsyncScriptTimeout(5000);
 ```
 
 
+## Description
+
+If the current context is the top level browsing context, the context remains unchanged
+
 
 ## Client Docs
 
- * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebDriver.Timeouts.html#setScriptTimeout-long-java.util.concurrent.TimeUnit-) 
- * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webdriver.WebDriver.set_script_timeout) 
- * [Javascript (WebdriverIO)](http://webdriver.io/api/protocol/timeoutsAsyncScript.html) 
- * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L699) 
- * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/Timeouts#script_timeout=) 
+ * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebDriver.TargetLocator.html#parentFrame--) 
+ * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webdriver.WebDriver.current_url) 
+ * [Javascript (WebdriverIO)](http://webdriver.io/api/protocol/frameParent.html) 
+
+ * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/TargetLocator:parent_frame) 
  * [PHP](https://github.com/appium/php-client/) 
  * [C#](https://github.com/appium/appium-dotnet-driver/) 
 
@@ -86,7 +88,7 @@ await driver.setAsyncScriptTimeout(5000);
 
 ### Endpoint
 
-`POST /session/:session_id/timeouts/async_script`
+`GET /wd/hub/session/:session_id/url`
 
 ### URL Parameters
 
@@ -96,14 +98,13 @@ await driver.setAsyncScriptTimeout(5000);
 
 ### JSON Parameters
 
-|name|type|description|
-|----|-----------|
-| ms | number | The amount of time, in milliseconds, that time-limited commands are permitted to run |
+None
 
 ### Response
 
-null
+The current URL (string)
 
 ## See Also
 
-* [JSONWP Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#sessionsessionidtimeoutsasync_script)
+* [W3C Specification](https://www.w3.org/TR/webdriver/#dfn-switch-to-parent-frame)
+* [JSONWP Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#sessionsessionidframeparent)

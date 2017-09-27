@@ -17,6 +17,7 @@ Determine an element's location on the screen once it has been scrolled into vie
 let location = driver.getLocationInView("~SomeAccessibilityId");
 
 
+
 // wd example
 let element = await driver.elementByAccessibilityId("SomeAccessibilityID");
 let location = await element.getLocationInView();

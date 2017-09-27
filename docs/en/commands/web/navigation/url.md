@@ -21,6 +21,7 @@ url = self.driver.current_url()
 let url = driver.url();
 
 
+
 // wd example
 let url = await driver.url();
 

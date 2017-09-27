@@ -22,6 +22,7 @@ tagName = self.driver.find_element_by_accessibility_id('SomeAccessibilityID').ta
 let tagName = driver.getTagName("~SomeAccessibilityId");
 
 
+
 // wd example
 let element = await driver.elementByAccessibilityId("SomeAccessibilityID");
 let tagName = await element.getTagName();

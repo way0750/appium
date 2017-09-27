@@ -1,35 +1,37 @@
-# Get Timeouts
+# Set Window Position
 
-Set the amount of time, in milliseconds, that asynchronous scripts executed by [execute async](/docs/en/commands/session/execute-async.md) are permitted to run before they are aborted (Web context only)
+Change the position of the specified window (Web context only)
 ## Example Usage
 
 ```java
 // Java
-driver.manage().timeouts().setScriptTimeout(30, TimeUnit.SECONDS);
+driver.manage().window().setPosition(new Dimension(10, 10));
 
 ```
 
 ```python
 # Python
-self.driver.set_script_timeout(5000)
+self.driver.set_window_position(10, 10)
 
 ```
 
 ```javascript
 // Javascript
 // webdriver.io example
-driver.timeoutsAsyncScript(5000)
+driver.windowHandlePosition("handleName", {x: 10, y: 10}); // Set by window handle hame
+driver.windowHandlePosition({x: 10, y: 10}); // Current window
 
 
 
 // wd example
-await driver.setAsyncScriptTimeout(5000);
+await driver.setWindowPosition(10, 10, "handleName"); // Set position of window by handle name
+await driver.setWindowPosition(10, 10); // Set current window
 
 ```
 
 ```ruby
 # Ruby
-@driver.script_timeout(5) # Ruby translates it to seconds
+@driver.reposition_window(10, 10)
 
 ```
 
@@ -49,11 +51,11 @@ await driver.setAsyncScriptTimeout(5000);
 
 ## Client Docs
 
- * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebDriver.Timeouts.html#setScriptTimeout-long-java.util.concurrent.TimeUnit-) 
- * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webdriver.WebDriver.set_script_timeout) 
- * [Javascript (WebdriverIO)](http://webdriver.io/api/protocol/timeoutsAsyncScript.html) 
- * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L699) 
- * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/Timeouts#script_timeout=) 
+ * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebDriver.Window.html#setPosition-org.openqa.selenium.Point-) 
+ * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webdriver.WebDriver.set_window_position) 
+ * [Javascript (WebdriverIO)](http://webdriver.io/api/protocol/windowHandlePosition.html) 
+ * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L604) 
+ * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/Remote/W3C/Bridge:reposition_window) 
  * [PHP](https://github.com/appium/php-client/) 
  * [C#](https://github.com/appium/appium-dotnet-driver/) 
 
@@ -86,19 +88,21 @@ await driver.setAsyncScriptTimeout(5000);
 
 ### Endpoint
 
-`POST /session/:session_id/timeouts/async_script`
+`POST /wd/hub/session/:session_id/window/:window_handle/position`
 
 ### URL Parameters
 
 |name|description|
 |----|-----------|
 |session_id|ID of the session to route the command to|
+|window_handle|Handle of the window to get position of. If 'current' it will get position of current window.|
 
 ### JSON Parameters
 
 |name|type|description|
 |----|-----------|
-| ms | number | The amount of time, in milliseconds, that time-limited commands are permitted to run |
+| x | number | The x coordinate relative to the top left corner of the window |
+| y | number | The y coordinate relative to the top left corner of the window |
 
 ### Response
 
@@ -106,4 +110,4 @@ null
 
 ## See Also
 
-* [JSONWP Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#sessionsessionidtimeoutsasync_script)
+* [JSONWP Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#post-sessionsessionidwindowwindowhandleposition)

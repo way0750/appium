@@ -21,6 +21,7 @@ self.driver.set_page_load_timeout(5000)
 driver.timeouts('pageLoad', 5000)
 
 
+
 // wd example
 await driver.setPageLoadTimeout(5000);
 

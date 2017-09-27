@@ -1,35 +1,35 @@
-# Get Timeouts
+# Switch to Window
 
-Set the amount of time, in milliseconds, that asynchronous scripts executed by [execute async](/docs/en/commands/session/execute-async.md) are permitted to run before they are aborted (Web context only)
+Change focus to another window (Web context only)
 ## Example Usage
 
 ```java
 // Java
-driver.manage().timeouts().setScriptTimeout(30, TimeUnit.SECONDS);
+driver.switchTo().window("handle");
 
 ```
 
 ```python
 # Python
-self.driver.set_script_timeout(5000)
+self.driver.switch_to.window("handle")
 
 ```
 
 ```javascript
 // Javascript
 // webdriver.io example
-driver.timeoutsAsyncScript(5000)
+driver.window("handle");
 
 
 
 // wd example
-await driver.setAsyncScriptTimeout(5000);
+await driver.window("handle");
 
 ```
 
 ```ruby
 # Ruby
-@driver.script_timeout(5) # Ruby translates it to seconds
+@driver.switch_to.window("handle")
 
 ```
 
@@ -49,11 +49,11 @@ await driver.setAsyncScriptTimeout(5000);
 
 ## Client Docs
 
- * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebDriver.Timeouts.html#setScriptTimeout-long-java.util.concurrent.TimeUnit-) 
- * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webdriver.WebDriver.set_script_timeout) 
- * [Javascript (WebdriverIO)](http://webdriver.io/api/protocol/timeoutsAsyncScript.html) 
- * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L699) 
- * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/Timeouts#script_timeout=) 
+ * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebDriver.TargetLocator.html#window-java.lang.String-) 
+ * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webdriver.WebDriver.switch_to_window) 
+ * [Javascript (WebdriverIO)](http://webdriver.io/api/protocol/window.html) 
+ * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L317) 
+ * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/Remote/W3C/Bridge:switch_to_window) 
  * [PHP](https://github.com/appium/php-client/) 
  * [C#](https://github.com/appium/appium-dotnet-driver/) 
 
@@ -86,7 +86,7 @@ await driver.setAsyncScriptTimeout(5000);
 
 ### Endpoint
 
-`POST /session/:session_id/timeouts/async_script`
+`POST /wd/hub/session/:session_id/window`
 
 ### URL Parameters
 
@@ -98,7 +98,7 @@ await driver.setAsyncScriptTimeout(5000);
 
 |name|type|description|
 |----|-----------|
-| ms | number | The amount of time, in milliseconds, that time-limited commands are permitted to run |
+| name | string | The window to change focus to |
 
 ### Response
 
@@ -106,4 +106,5 @@ null
 
 ## See Also
 
-* [JSONWP Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#sessionsessionidtimeoutsasync_script)
+* [W3C Specification](https://www.w3.org/TR/webdriver/#dfn-switch-to-window)
+* [JSONWP Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#sessionsessionidwindow)

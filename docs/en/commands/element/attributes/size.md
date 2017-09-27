@@ -22,6 +22,7 @@ size = self.driver.find_element_by_accessibility_id('SomeAccessibilityID').size
 let size = driver.getElementSize("~SomeAccessibilityId");
 
 
+
 // wd example
 let element = await driver.elementByAccessibilityId("SomeAccessibilityID");
 let size = await element.getSize();

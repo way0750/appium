@@ -21,6 +21,7 @@ window_handles = self.driver.window_handles()
 let handles = driver.windowHandles();
 
 
+
 // wd example
 let windowHandle = await driver.windowHandles();
 

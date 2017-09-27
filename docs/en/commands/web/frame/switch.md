@@ -1,35 +1,35 @@
-# Get Timeouts
+# Switch to Frame
 
-Set the amount of time, in milliseconds, that asynchronous scripts executed by [execute async](/docs/en/commands/session/execute-async.md) are permitted to run before they are aborted (Web context only)
+Change focus to another frame on the page (Web context only)
 ## Example Usage
 
 ```java
 // Java
-driver.manage().timeouts().setScriptTimeout(30, TimeUnit.SECONDS);
+driver.switchTo().frame(3);
 
 ```
 
 ```python
 # Python
-self.driver.set_script_timeout(5000)
+self.driver.switch_to.frame(3)
 
 ```
 
 ```javascript
 // Javascript
 // webdriver.io example
-driver.timeoutsAsyncScript(5000)
+driver.frame(3);
 
 
 
 // wd example
-await driver.setAsyncScriptTimeout(5000);
+await driver.frame(3);
 
 ```
 
 ```ruby
 # Ruby
-@driver.script_timeout(5) # Ruby translates it to seconds
+@driver.switch_to.frame(3)
 
 ```
 
@@ -46,14 +46,18 @@ await driver.setAsyncScriptTimeout(5000);
 ```
 
 
+## Description
+
+If the frame id is null, the server should switch to the page's default content
+
 
 ## Client Docs
 
- * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebDriver.Timeouts.html#setScriptTimeout-long-java.util.concurrent.TimeUnit-) 
- * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webdriver.WebDriver.set_script_timeout) 
- * [Javascript (WebdriverIO)](http://webdriver.io/api/protocol/timeoutsAsyncScript.html) 
- * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L699) 
- * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/Timeouts#script_timeout=) 
+ * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebDriver.TargetLocator.html#frame-int-) 
+ * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webdriver.WebDriver.switch_to_frame) 
+ * [Javascript (WebdriverIO)](http://webdriver.io/api/protocol/frame.html) 
+ * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L332) 
+ * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/Remote/W3C/Bridge:switch_to_frame) 
  * [PHP](https://github.com/appium/php-client/) 
  * [C#](https://github.com/appium/appium-dotnet-driver/) 
 
@@ -86,7 +90,7 @@ await driver.setAsyncScriptTimeout(5000);
 
 ### Endpoint
 
-`POST /session/:session_id/timeouts/async_script`
+`POST /wd/hub/session/:session_id/frame`
 
 ### URL Parameters
 
@@ -98,7 +102,7 @@ await driver.setAsyncScriptTimeout(5000);
 
 |name|type|description|
 |----|-----------|
-| ms | number | The amount of time, in milliseconds, that time-limited commands are permitted to run |
+| id | string|number|null|WebElement JSON Object | Identifier for the frame to change focus to. |
 
 ### Response
 
@@ -106,4 +110,5 @@ null
 
 ## See Also
 
-* [JSONWP Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#sessionsessionidtimeoutsasync_script)
+* [W3C Specification](https://www.w3.org/TR/webdriver/#dfn-switch-to-frame)
+* [JSONWP Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#sessionsessionidurl)
