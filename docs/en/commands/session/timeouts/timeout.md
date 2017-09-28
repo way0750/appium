@@ -29,7 +29,7 @@ await driver.setPageLoadTimeout(5000);
 
 ```ruby
 # Ruby
-@driver.implicit_wait(5) # Ruby translates it to seconds
+@driver.page_load(5) # Ruby translates it to seconds
 
 ```
 
@@ -48,7 +48,7 @@ await driver.setPageLoadTimeout(5000);
 
 ## Description
 
-The types of timeouts are 'page load', 'script' and 'implicit'. (The example usage is just 'page load')
+The types of timeouts are 'page load', ['script'](/docs/en/commands/session/async-script.md) and ['implicit'](/docs/en/commands/session/implicit.md). (The example usage is just 'page load')
 
 
 ## Client Docs
@@ -57,7 +57,7 @@ The types of timeouts are 'page load', 'script' and 'implicit'. (The example usa
  * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webdriver.WebDriver.set_page_load_timeout) 
  * [Javascript (WebdriverIO)](http://webdriver.io/guide/testrunner/timeouts.html#Selenium-timeouts) 
  * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L714) 
- * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/Timeouts:implicit_wait=) 
+ * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/Timeouts:page_load=) 
  * [PHP](https://github.com/appium/php-client/) 
  * [C#](https://github.com/appium/appium-dotnet-driver/) 
 
@@ -101,7 +101,7 @@ The types of timeouts are 'page load', 'script' and 'implicit'. (The example usa
 ### JSON Parameters
 
 |name|type|description|
-|----|-----------|
+|----|----|-----------|
 | type | string | The type of operation to set the timeout for. Valid values are: 'script' for script timeouts, 'implicit' for modifying the implicit wait timeout and 'page load' for setting a page load timeout. |
 | ms | number | The amount of time, in milliseconds, that time-limited commands are permitted to run |
 

@@ -74,13 +74,13 @@ await driver.window("handle");
 
 |Language|Support|
 |--------|-------|
-|[Java](https://github.com/appium/java-client/releases/latest)| None |
-|[Python](https://github.com/appium/python-client/releases/latest)| None |
-|[Javascript (WebdriverIO)](http://webdriver.io/index.html)| None |
-|[Javascript (WD)](https://github.com/admc/wd/releases/latest)| None |
-|[Ruby](https://github.com/appium/ruby_lib/releases/latest)| None |
-|[PHP](https://github.com/appium/php-client/releases/latest)| None |
-|[C#](https://github.com/appium/appium-dotnet-driver/releases/latest)| None |
+|[Java](https://github.com/appium/java-client/releases/latest)| All |
+|[Python](https://github.com/appium/python-client/releases/latest)| All |
+|[Javascript (WebdriverIO)](http://webdriver.io/index.html)| All |
+|[Javascript (WD)](https://github.com/admc/wd/releases/latest)| All |
+|[Ruby](https://github.com/appium/ruby_lib/releases/latest)| All |
+|[PHP](https://github.com/appium/php-client/releases/latest)| All |
+|[C#](https://github.com/appium/appium-dotnet-driver/releases/latest)| All |
 
 ## HTTP API Specifications
 
@@ -97,7 +97,7 @@ await driver.window("handle");
 ### JSON Parameters
 
 |name|type|description|
-|----|-----------|
+|----|----|-----------|
 | name | string | The window to change focus to |
 
 ### Response

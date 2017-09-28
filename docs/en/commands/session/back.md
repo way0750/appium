@@ -63,24 +63,24 @@ await driver.back();
 
 |Platform|Driver|Platform Versions|Appium Version|Driver Version|
 |--------|----------------|------|--------------|--------------|
-| iOS | [XCUITest](/docs/en/drivers/ios-xcuitest.md) | None | None | None |
-|  | [UIAutomation](/docs/en/drivers/ios-uiautomation.md) | None | None | None |
-| Android | [UiAutomator2](/docs/en/drivers/android-uiautomator2.md) | None | None | None |
-|  | [UiAutomator](/docs/en/drivers/android-uiautomator.md) | None | None | None |
-| Mac | [Mac](/docs/en/drivers/mac.md) | None | None | None |
-| Windows | [Windows](/docs/en/drivers/windows.md) | None | None | None |
+| iOS | [XCUITest](/docs/en/drivers/ios-xcuitest.md) | 9.3+ | 1.6.0+ | All |
+|  | [UIAutomation](/docs/en/drivers/ios-uiautomation.md) | 8.0 to 9.3 | All | All |
+| Android | [UiAutomator2](/docs/en/drivers/android-uiautomator2.md) | ?+ | 1.6.0+ | All |
+|  | [UiAutomator](/docs/en/drivers/android-uiautomator.md) | 4.2+ | All | All |
+| Mac | [Mac](/docs/en/drivers/mac.md) | ?+ | 1.6.4+ | All |
+| Windows | [Windows](/docs/en/drivers/windows.md) | 10+ | 1.6.0+ | All |
 
 ### Appium Clients 
 
 |Language|Support|
 |--------|-------|
-|[Java](https://github.com/appium/java-client/releases/latest)| None |
-|[Python](https://github.com/appium/python-client/releases/latest)| None |
-|[Javascript (WebdriverIO)](http://webdriver.io/index.html)| None |
-|[Javascript (WD)](https://github.com/admc/wd/releases/latest)| None |
-|[Ruby](https://github.com/appium/ruby_lib/releases/latest)| None |
-|[PHP](https://github.com/appium/php-client/releases/latest)| None |
-|[C#](https://github.com/appium/appium-dotnet-driver/releases/latest)| None |
+|[Java](https://github.com/appium/java-client/releases/latest)| All |
+|[Python](https://github.com/appium/python-client/releases/latest)| All |
+|[Javascript (WebdriverIO)](http://webdriver.io/index.html)| All |
+|[Javascript (WD)](https://github.com/admc/wd/releases/latest)| All |
+|[Ruby](https://github.com/appium/ruby_lib/releases/latest)| All |
+|[PHP](https://github.com/appium/php-client/releases/latest)| All |
+|[C#](https://github.com/appium/appium-dotnet-driver/releases/latest)| All |
 
 ## HTTP API Specifications
 

@@ -46,6 +46,13 @@ let screenshot = await driver.takeScreenshot();
 ```
 
 
+## Description
+
+Takes a screenshot of the viewport in a native context (iOS, Android) and takes a screenshot of the window in web context
+
+Note that some platforms may have settings that prevent screenshots from being taken, for security reason. One such feature is 
+the [Android FLAG_SECURE layout parameter](https://developer.android.com/reference/android/view/WindowManager.LayoutParams.html#FLAG_SECURE)
+
 
 ## Client Docs
 

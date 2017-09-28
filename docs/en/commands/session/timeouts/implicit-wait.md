@@ -106,7 +106,7 @@ If this command is never sent, the driver should default to an implicit wait of 
 ### JSON Parameters
 
 |name|type|description|
-|----|-----------|
+|----|----|-----------|
 | ms | number | The amount of time, in milliseconds, that time-limited commands are permitted to run |
 
 ### Response

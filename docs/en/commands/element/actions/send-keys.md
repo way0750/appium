@@ -104,7 +104,7 @@ Any UTF-8 character may be specified, however, if the server does not support na
 ### JSON Parameters
 
 |name|type|description|
-|----|-----------|
+|----|----|-----------|
 | value | array<string> | The sequence of keys to type. An array must be provided. The server should flatten the array items to a single string to be typed. |
 
 ### Response

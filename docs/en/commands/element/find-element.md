@@ -103,7 +103,7 @@ The locator strategy returns the first element it finds. #TODO: Let's make a doc
 ### JSON Parameters
 
 |name|type|description|
-|----|-----------|
+|----|----|-----------|
 | using | string | The locator strategy to use |
 | value | string | The search target |
 

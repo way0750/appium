@@ -97,7 +97,7 @@ await driver.setAsyncScriptTimeout(5000);
 ### JSON Parameters
 
 |name|type|description|
-|----|-----------|
+|----|----|-----------|
 | ms | number | The amount of time, in milliseconds, that time-limited commands are permitted to run |
 
 ### Response

@@ -111,7 +111,7 @@ Arguments may be any JSON-primitive, array, or JSON object. JSON objects that de
 ### JSON Parameters
 
 |name|type|description|
-|----|-----------|
+|----|----|-----------|
 | script | string | The script to execute |
 | args | array | The script arguments |
 

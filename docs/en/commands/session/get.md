@@ -1,6 +1,6 @@
 # Get Session Capabilities
 
-Retrieve the capabilities of the specified
+Retrieve the capabilities of the specified session
 ## Example Usage
 
 ```java
@@ -30,7 +30,7 @@ let caps = await driver.sessionCapabilities('c8db88a0-47a6-47a1-802d-164d746c06a
 
 ```ruby
 # Ruby
-# Private method. Do not use.
+@driver.session_capabilities()
 
 ```
 
