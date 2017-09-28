@@ -99,6 +99,7 @@ async function main () {
   const commands = path.resolve(__dirname, 'commands/**/*.yml');
   console.log('Traversing YML files', commands);
   await fs.rimraf(path.resolve(__dirname, '..', 'docs', 'en', 'commands'));
+  let fileCount = 0;
   for (let filename of await fs.glob(commands)) {
     console.log('Rendering file:', filename, path.relative(__dirname, filename), path.extname(filename));
 
@@ -120,7 +121,10 @@ async function main () {
     console.log('Writing file to:', outfile);
     await mkdirp(path.dirname(outfile));
     await fs.writeFile(outfile, markdown, 'utf8');
+
+    fileCount++;
   }
+  console.log(`Done writing ${fileCount} command documents`);
 }
 
 asyncify(main);

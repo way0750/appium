@@ -102,7 +102,7 @@ An indepth description of what this command does
 ### JSON Parameters
 
 |name|type|description|
-|----|-----------|
+|----|----|-----------|
 | item | Object | Description of Item |
 | item.1 | String | Item One description |
 

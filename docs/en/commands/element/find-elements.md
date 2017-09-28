@@ -109,7 +109,7 @@ Get a list of elements that match the [locator selector](/docs/en/about-appium/g
 ### JSON Parameters
 
 |name|type|description|
-|----|-----------|
+|----|----|-----------|
 | using | string | The locator strategy to use |
 | value | string | The search target |
 

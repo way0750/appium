@@ -1,36 +1,34 @@
-# Find Element
+# Set Timeouts
 
-Search for an element on the page
+Configure the amount of time that a particular type of operation can execute for before they are aborted
 ## Example Usage
 
 ```java
 // Java
-MobileElement elementOne = (MobileElement) driver.findElementByAccessibilityId("SomeAccessibilityID");
-MobileElement elementTwo = (MobileElement) driver.findElementByClassName("SomeClassName");
+driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
 ```
 
 ```python
 # Python
-el = self.driver.find_element_by_accessibility_id('SomeAccessibilityID')
+self.driver.set_page_load_timeout(5000)
 
 ```
 
 ```javascript
 // Javascript
 // webdriver.io example
-driver.element("~SomeAccessibilityId");
+driver.timeouts('pageLoad', 5000)
 
 
 // wd example
-let elementOne = await driver.elementByAccessibilityId("SomeAccessibilityID");
-let elementTwo = await driver.element("id", "SomeID");
+await driver.setPageLoadTimeout(5000);
 
 ```
 
 ```ruby
 # Ruby
-@driver.find_element(:accessibility_id, 'SomeAccessibilityID')
+@driver.page_load(5) # Ruby translates it to seconds
 
 ```
 
@@ -49,16 +47,16 @@ let elementTwo = await driver.element("id", "SomeID");
 
 ## Description
 
-The locator strategy returns the first element it finds. #TODO: Let's make a document with the locator strategies that this links to
+The types of timeouts are 'page load', ['script'](/docs/en/commands/session/async-script.md) and ['implicit'](/docs/en/commands/session/implicit.md). (The example usage is just 'page load')
 
 
 ## Client Docs
 
- * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebElement.html#findElement-org.openqa.selenium.By-) 
- * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webdriver.WebDriver.find_element) 
- * [Javascript (WebdriverIO)](http://webdriver.io/api/protocol/element.html#Usage) 
- * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L745) 
- * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/SearchContext:find_element) 
+ * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/remote/RemoteWebDriver.RemoteWebDriverOptions.RemoteTimeouts.html#pageLoadTimeout-long-java.util.concurrent.TimeUnit-) 
+ * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webdriver.WebDriver.set_page_load_timeout) 
+ * [Javascript (WebdriverIO)](http://webdriver.io/guide/testrunner/timeouts.html#Selenium-timeouts) 
+ * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L714) 
+ * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/Timeouts:page_load=) 
  * [PHP](https://github.com/appium/php-client/) 
  * [C#](https://github.com/appium/appium-dotnet-driver/) 
 
@@ -91,7 +89,7 @@ The locator strategy returns the first element it finds. #TODO: Let's make a doc
 
 ### Endpoint
 
-`POST /wd/hub/session/:session_id/element`
+`POST /session/:session_id/timeouts`
 
 ### URL Parameters
 
@@ -103,14 +101,14 @@ The locator strategy returns the first element it finds. #TODO: Let's make a doc
 
 |name|type|description|
 |----|----|-----------|
-| using | string | The locator strategy to use |
-| value | string | The search target |
+| type | string | The type of operation to set the timeout for. Valid values are: 'script' for script timeouts, 'implicit' for modifying the implicit wait timeout and 'page load' for setting a page load timeout. |
+| ms | number | The amount of time, in milliseconds, that time-limited commands are permitted to run |
 
 ### Response
 
-A JSON object for the located element (object)
+null
 
 ## See Also
 
-* [W3C Specification](https://www.w3.org/TR/webdriver/#find-element)
-* [JSONWP Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#sessionsessionidelement)
+* [W3C Specification](https://www.w3.org/TR/webdriver/#set-timeouts)
+* [JSONWP Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#sessionsessionidtimeouts)

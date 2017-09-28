@@ -1,36 +1,50 @@
-# Find Element
+# Tap
 
-Search for an element on the page
+Single tap on the touch enabled device
 ## Example Usage
 
 ```java
 // Java
-MobileElement elementOne = (MobileElement) driver.findElementByAccessibilityId("SomeAccessibilityID");
-MobileElement elementTwo = (MobileElement) driver.findElementByClassName("SomeClassName");
+TouchActions action = new TouchActions(driver);
+action.singleTap(element);
+action.perform();
 
 ```
 
 ```python
 # Python
-el = self.driver.find_element_by_accessibility_id('SomeAccessibilityID')
+actions = TouchActions(driver)
+actions.tap(element)
+actions.perform()
 
 ```
 
 ```javascript
 // Javascript
 // webdriver.io example
-driver.element("~SomeAccessibilityId");
+driver.touchPerform({
+  action: 'tap',
+  options: {
+    element: element
+  }
+});
 
 
 // wd example
-let elementOne = await driver.elementByAccessibilityId("SomeAccessibilityID");
-let elementTwo = await driver.element("id", "SomeID");
+// Using tapElement method
+await driver.tapElement(elementOne);
+
+// Using touch actions
+let action = new wd.TouchAction();
+action.tap({el: element});
+action.perform();
+await driver.performTouchAction(action);
 
 ```
 
 ```ruby
 # Ruby
-@driver.find_element(:accessibility_id, 'SomeAccessibilityID')
+@driver.touch_action.single_tap(element).perform
 
 ```
 
@@ -47,18 +61,14 @@ let elementTwo = await driver.element("id", "SomeID");
 ```
 
 
-## Description
-
-The locator strategy returns the first element it finds. #TODO: Let's make a document with the locator strategies that this links to
-
 
 ## Client Docs
 
- * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebElement.html#findElement-org.openqa.selenium.By-) 
- * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webdriver.WebDriver.find_element) 
- * [Javascript (WebdriverIO)](http://webdriver.io/api/protocol/element.html#Usage) 
- * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L745) 
- * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/SearchContext:find_element) 
+ * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/interactions/touch/TouchActions.html#singleTap-org.openqa.selenium.WebElement-) 
+ * [Python](https://seleniumhq.github.io/selenium/docs/api/py/webdriver/selenium.webdriver.common.touch_actions.html#selenium.webdriver.common.touch_actions.TouchActions.tap) 
+ * [Javascript (WebdriverIO)](http://webdriver.io/api/mobile/touchPerform.html) 
+ * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L1531) 
+ * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium%2FWebDriver%2FTouchActionBuilder:single_tap) 
  * [PHP](https://github.com/appium/php-client/) 
  * [C#](https://github.com/appium/appium-dotnet-driver/) 
 
@@ -91,7 +101,7 @@ The locator strategy returns the first element it finds. #TODO: Let's make a doc
 
 ### Endpoint
 
-`POST /wd/hub/session/:session_id/element`
+`POST /session/:session_id/touch/click`
 
 ### URL Parameters
 
@@ -103,14 +113,12 @@ The locator strategy returns the first element it finds. #TODO: Let's make a doc
 
 |name|type|description|
 |----|----|-----------|
-| using | string | The locator strategy to use |
-| value | string | The search target |
+| element | number | ID of the element to double tap on |
 
 ### Response
 
-A JSON object for the located element (object)
+null
 
 ## See Also
 
-* [W3C Specification](https://www.w3.org/TR/webdriver/#find-element)
-* [JSONWP Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#sessionsessionidelement)
+* [JSONWP Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#sessionsessionidtouchclick)
