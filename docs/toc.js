@@ -46,6 +46,24 @@ module.exports = {
           ["Active Element", "active.md"],
           ["Equals Element", "equals-element.md"],
         ]]
+      ]],
+      ["Device", ["device",
+        ["App", ["app",
+          ["Install App", "install-app.md"],
+          ["Remove App", "remove-app.md"],
+          ["Is App Installed", "is-app-installed.md"]
+        ]],
+        ["Files", ["files",
+          ["Push File", "push-file.md"],
+          ["Pull File", "pull-file.md"],
+          ["Pull Folder", "pull-folder.md"],
+        ]],
+        ["Other", ["other",
+          ["Rotate", "rotate.md"],
+          ["Current Activity", "current-activity.md"],
+          ["Current Package", "current-package.md"],
+          ["Start Activity", "start-activity.md"],
+        ]]
       ]]
     ]],
     ["Writing & Running Tests", ["writing-running-appium",
