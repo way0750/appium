@@ -26,7 +26,12 @@
 // Javascript
 // webdriver.io example
 {{example_usage.javascript_wdio}}
+{{else}}
+// Not supported
+{{/if}}
 
+
+{{#if example_usage.javascript_wd}}
 // wd example
 {{example_usage.javascript_wd}}
 {{else}}

@@ -1,37 +1,35 @@
-# Get Element Size
+# Take Screenshot
 
-Determine an element's size in pixels
+Take a screenshot of the current viewport/window/page
 ## Example Usage
 
 ```java
 // Java
-List<MobileElement> element = (MobileElement) driver.findElementByAccessibilityId("SomeAccessibilityID");
-Dimension elementSize = element.getSize();
+File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 
 ```
 
 ```python
 # Python
-size = self.driver.find_element_by_accessibility_id('SomeAccessibilityID').size
+screenshotBase64 = self.driver.get_screenshot_as_base64()
 
 ```
 
 ```javascript
 // Javascript
 // webdriver.io example
-let size = driver.getElementSize("~SomeAccessibilityId");
+let screenshot = driver.screenshot();
 
 
 
 // wd example
-let element = await driver.elementByAccessibilityId("SomeAccessibilityID");
-let size = await element.getSize();
+let screenshot = await driver.takeScreenshot();
 
 ```
 
 ```ruby
 # Ruby
-@driver.find_element(:accessibility_id, 'SomeAccessibilityID').size
+@driver.screenshot_as(:base64)
 
 ```
 
@@ -48,17 +46,14 @@ let size = await element.getSize();
 ```
 
 
-## Description
-
-The size will be returned as an object with width and height properties.
 
 ## Client Docs
 
- * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebElement.html#getSize--) 
- * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webelement.WebElement.size) 
- * [Javascript (WebdriverIO)](http://webdriver.io/api/property/getElementSize.html) 
- * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L2203) 
- * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/Element:size) 
+ * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/remote/RemoteWebDriver.html#getScreenshotAs-org.openqa.selenium.OutputType-) 
+ * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webdriver.WebDriver.get_screenshot_as_base64) 
+ * [Javascript (WebdriverIO)](http://webdriver.io/api/protocol/screenshot.html) 
+ * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L1089) 
+ * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/DriverExtensions/TakesScreenshot) 
  * [PHP](https://github.com/appium/php-client/) 
  * [C#](https://github.com/appium/appium-dotnet-driver/) 
 
@@ -91,7 +86,7 @@ The size will be returned as an object with width and height properties.
 
 ### Endpoint
 
-`GET /wd/hub/session/:session_id/elements/:element_id/size`
+`GET /wd/hub/session/:session_id/screenshot`
 
 ### URL Parameters
 
@@ -103,11 +98,9 @@ None
 
 ### Response
 
-|name|type|description|
-|----|----|-----------|
-| width | number | Width of the element |
-| height | number | Height of the element |
+The screenshot as a base64 encoded PNG (string)
 
 ## See Also
 
-* [JSONWP Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#sessionsessionidelementidsize)
+* [W3C Specification](https://www.w3.org/TR/webdriver/#dfn-take-screenshot)
+* [JSONWP Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#sessionsessionidscreenshot)

@@ -23,6 +23,7 @@ el.submit();
 driver.submitForm("~SomeAccessibilityId");
 
 
+
 // wd example
 let element = await driver.elementByAccessibilityId("SomeAccessibilityID");
 await element.submit();

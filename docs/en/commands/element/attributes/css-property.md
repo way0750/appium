@@ -22,6 +22,7 @@ cssProperty = self.driver.find_element_by_accessibility_id('SomeId').value_of_cs
 let cssProperty = driver.getCssProperty("~SomeId", "style");
 
 
+
 // wd example
 let element = await driver.elementById("SomeId");
 let cssProperty = await element.getComputedCss();

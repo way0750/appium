@@ -1,0 +1,112 @@
+# Get Window Size
+
+Get the size of the specified window (Web context only)
+## Example Usage
+
+```java
+// Java
+Dimension windowSize = driver.manage().window().getSize();
+
+```
+
+```python
+# Python
+handle_one_size = self.driver.get_window_size()
+handle_two_size = self.driver.get_window_size("handleName")
+
+```
+
+```javascript
+// Javascript
+// webdriver.io example
+let handleOneSize = driver.windowHandleSize();
+let handleTwoSize = driver.windowHandleSize("handleName");
+
+
+
+// wd example
+let handleOneSize = await driver.getWindowSize();
+let handleTwoSize = await driver.getWindowSize("handleName");
+
+```
+
+```ruby
+# Ruby
+@driver.window_size()
+@driver.window_size("handleName")
+
+```
+
+```php
+# PHP
+// TODO PHP sample
+
+```
+
+```csharp
+// C#
+// TODO C# sample
+
+```
+
+
+
+## Client Docs
+
+ * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebDriver.Window.html#getSize--) 
+ * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webdriver.WebDriver.get_window_size) 
+ * [Javascript (WebdriverIO)](http://webdriver.io/api/protocol/windowHandleSize.html) 
+ * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L546) 
+ * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/Remote/W3C/Bridge:window_size) 
+ * [PHP](https://github.com/appium/php-client/) 
+ * [C#](https://github.com/appium/appium-dotnet-driver/) 
+
+## Support
+
+### Appium Server
+
+|Platform|Driver|Platform Versions|Appium Version|Driver Version|
+|--------|----------------|------|--------------|--------------|
+| iOS | [XCUITest](/docs/en/drivers/ios-xcuitest.md) | None | None | None |
+|  | [UIAutomation](/docs/en/drivers/ios-uiautomation.md) | None | None | None |
+| Android | [UiAutomator2](/docs/en/drivers/android-uiautomator2.md) | None | None | None |
+|  | [UiAutomator](/docs/en/drivers/android-uiautomator.md) | None | None | None |
+| Mac | [Mac](/docs/en/drivers/mac.md) | None | None | None |
+| Windows | [Windows](/docs/en/drivers/windows.md) | None | None | None |
+
+### Appium Clients 
+
+|Language|Support|
+|--------|-------|
+|[Java](https://github.com/appium/java-client/releases/latest)| None |
+|[Python](https://github.com/appium/python-client/releases/latest)| None |
+|[Javascript (WebdriverIO)](http://webdriver.io/index.html)| None |
+|[Javascript (WD)](https://github.com/admc/wd/releases/latest)| None |
+|[Ruby](https://github.com/appium/ruby_lib/releases/latest)| None |
+|[PHP](https://github.com/appium/php-client/releases/latest)| None |
+|[C#](https://github.com/appium/appium-dotnet-driver/releases/latest)| None |
+
+## HTTP API Specifications
+
+### Endpoint
+
+`GET /wd/hub/session/:session_id/window/:window_handle/size`
+
+### URL Parameters
+
+None
+
+### JSON Parameters
+
+None
+
+### Response
+
+|name|type|description|
+|----|----|-----------|
+| width | number | The width of the window |
+| height | number | The height of the window |
+
+## See Also
+
+* [JSONWP Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#get-sessionsessionidwindowwindowhandlesize)

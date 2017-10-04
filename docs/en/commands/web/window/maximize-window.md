@@ -1,0 +1,108 @@
+# Maximize Window
+
+Maximize the specified window (Web context only)
+## Example Usage
+
+```java
+// Java
+driver.manage().window().maximize();
+
+```
+
+```python
+# Python
+self.driver.maximize_window();
+
+```
+
+```javascript
+// Javascript
+// webdriver.io example
+driver.windowHandleMaximize("handleName"); // Set by window handle hame
+driver.windowHandleMaximize(); // Current window
+
+
+
+// wd example
+await driver.maximize("handleName"); // Set size of window by handle name
+await driver.maximize(); // Set current window
+
+```
+
+```ruby
+# Ruby
+@driver.resize_to(10, 10)
+
+```
+
+```php
+# PHP
+// TODO PHP sample
+
+```
+
+```csharp
+// C#
+// TODO C# sample
+
+```
+
+
+
+## Client Docs
+
+ * [Java](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebDriver.Window.html) 
+ * [Python](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webdriver.WebDriver.maximize_window) 
+ * [Javascript (WebdriverIO)](http://webdriver.io/api/protocol/windowHandleMaximize.html) 
+ * [Javascript (WD)](https://github.com/admc/wd/blob/master/lib/commands.js#L517) 
+ * [Ruby](http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/Window:maximize) 
+ * [PHP](https://github.com/appium/php-client/) 
+ * [C#](https://github.com/appium/appium-dotnet-driver/) 
+
+## Support
+
+### Appium Server
+
+|Platform|Driver|Platform Versions|Appium Version|Driver Version|
+|--------|----------------|------|--------------|--------------|
+| iOS | [XCUITest](/docs/en/drivers/ios-xcuitest.md) | None | None | None |
+|  | [UIAutomation](/docs/en/drivers/ios-uiautomation.md) | None | None | None |
+| Android | [UiAutomator2](/docs/en/drivers/android-uiautomator2.md) | None | None | None |
+|  | [UiAutomator](/docs/en/drivers/android-uiautomator.md) | None | None | None |
+| Mac | [Mac](/docs/en/drivers/mac.md) | None | None | None |
+| Windows | [Windows](/docs/en/drivers/windows.md) | None | None | None |
+
+### Appium Clients 
+
+|Language|Support|
+|--------|-------|
+|[Java](https://github.com/appium/java-client/releases/latest)| None |
+|[Python](https://github.com/appium/python-client/releases/latest)| None |
+|[Javascript (WebdriverIO)](http://webdriver.io/index.html)| None |
+|[Javascript (WD)](https://github.com/admc/wd/releases/latest)| None |
+|[Ruby](https://github.com/appium/ruby_lib/releases/latest)| None |
+|[PHP](https://github.com/appium/php-client/releases/latest)| None |
+|[C#](https://github.com/appium/appium-dotnet-driver/releases/latest)| None |
+
+## HTTP API Specifications
+
+### Endpoint
+
+`POST /wd/hub/session/:session_id/window/:window_handle/maximize`
+
+### URL Parameters
+
+None
+
+### JSON Parameters
+
+None
+
+### Response
+
+null
+
+## See Also
+
+* [W3C Specification](https://www.w3.org/TR/webdriver/#dfn-maximize-window)
+* [JSONWP Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#sessionsessionidwindowwindowhandlemaximize)

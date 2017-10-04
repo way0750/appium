@@ -23,6 +23,7 @@ let elText = element.getText();
 driver.getText("~SomeAccessibilityId");
 
 
+
 // wd example
 let element = await driver.elementByAccessibilityId("SomeAccessibilityID");
 await element.submit();

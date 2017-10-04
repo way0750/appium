@@ -22,6 +22,7 @@ location = self.driver.find_element_by_accessibility_id('SomeAccessibilityID').l
 let location = driver.getLocation("~SomeAccessibilityId");
 
 
+
 // wd example
 let element = await driver.elementByAccessibilityId("SomeAccessibilityID");
 let location = await element.getLocation();

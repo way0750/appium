@@ -20,6 +20,7 @@ Rectangle rect = element.getRect();
 let rect = driver.elementIdRect("~SomeAccessibilityId");
 
 
+
 // wd example
 let element = await driver.elementByAccessibilityId("SomeAccessibilityID");
 let rect = await element.getRect();
