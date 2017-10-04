@@ -97,7 +97,10 @@ Not all drivers automatically scroll the element into view and may need to be sc
 
 ### URL Parameters
 
-None
+|name|description|
+|----|-----------|
+|session_id|UUID of the session|
+|element_id|UUID of the element|
 
 ### JSON Parameters
 

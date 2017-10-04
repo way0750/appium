@@ -91,7 +91,10 @@ await element.clear();
 
 ### URL Parameters
 
-None
+|name|description|
+|----|-----------|
+|session_id|ID of the session to route the command to|
+|element_id|ID of the element to clear.|
 
 ### JSON Parameters
 

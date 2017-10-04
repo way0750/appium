@@ -94,7 +94,10 @@ The point (0, 0) refers to the upper-left corner of the page. The element's coor
 
 ### URL Parameters
 
-None
+|name|description|
+|----|-----------|
+|session_id|ID of the session to route the command to|
+|element_id|ID of the element to get the location of|
 
 ### JSON Parameters
 

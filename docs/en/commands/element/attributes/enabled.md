@@ -91,7 +91,10 @@ let isEnabled = await element.isEnabled();
 
 ### URL Parameters
 
-None
+|name|description|
+|----|-----------|
+|session_id|ID of the session to route the command to|
+|element_id|ID of the element to check if it is enabled|
 
 ### JSON Parameters
 

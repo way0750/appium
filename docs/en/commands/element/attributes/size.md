@@ -94,7 +94,10 @@ The size will be returned as an object with width and height properties.
 
 ### URL Parameters
 
-None
+|name|description|
+|----|-----------|
+|session_id|ID of the session to route the command to|
+|element_id|ID of the element to get the size of|
 
 ### JSON Parameters
 

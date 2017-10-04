@@ -96,7 +96,10 @@ The submit command may also be applied to any element that is a descendant of a 
 
 ### URL Parameters
 
-None
+|name|description|
+|----|-----------|
+|session_id|ID of the session to route the command to|
+|element_id|ID of the element to submit|
 
 ### JSON Parameters
 

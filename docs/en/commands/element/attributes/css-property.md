@@ -97,7 +97,11 @@ This command only applies to webview contexts
 
 ### URL Parameters
 
-None
+|name|description|
+|----|-----------|
+|session_id|ID of the session to route the command to|
+|element_id|ID of the element to get the property from|
+|property_name|Name of the CSS property|
 
 ### JSON Parameters
 
