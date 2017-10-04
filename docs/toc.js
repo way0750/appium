@@ -46,6 +46,16 @@ module.exports = {
           ["Active Element", "active.md"],
           ["Equals Element", "equals-element.md"],
         ]]
+      ]],
+      ["Device", ["device",
+        ["App", ["app",
+          ["Launch App", "launch-app.md"],
+          ["Close App", "close-app.md"],
+          ["Reset App", "reset-app.md"],
+          ["Background App", "background-app.md"],
+          ["End Test Coverage", "end-test-coverage.md"],
+          ["Get App Strings", "get-app-strings.md"],
+        ]],
       ]]
     ]],
     ["Writing & Running Tests", ["writing-running-appium",
