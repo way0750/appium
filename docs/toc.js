@@ -46,7 +46,13 @@ module.exports = {
           ["Active Element", "active.md"],
           ["Equals Element", "equals-element.md"],
         ]]
-      ]]
+      ]],
+      ["Device", ["device",
+        ["Simulator", ["simulator",
+          ["Perform Touch ID", "touch-id.md"],
+          ["Toggle Touch ID Enrollment", "toggle-touch-id-enrollment.md"],
+        ]],
+      ]],
     ]],
     ["Writing & Running Tests", ["writing-running-appium",
       ["Running Tests", "running-tests.md"],
