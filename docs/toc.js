@@ -19,6 +19,11 @@ module.exports = {
       ["Status", "status.md"],
       ["Session", ["session",
         ["Create", "create.md"],
+        ["Other", ["other",
+          ["Update Settings", "settings.md"],
+          ["Get Device Settings", "get-settings.md"],
+          ["Receive Async Response", "receive-async-response.md"],
+        ]]
       ]],
       ["Element", ["element",
         ["Find Element", "find-element.md"],
